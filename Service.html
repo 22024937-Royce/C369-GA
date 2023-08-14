@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .header h1 span.RemitSG {
+      color: grey;
+    }
+
+
+    .navigation {
+      display: flex;
+      float: right;
+      margin-top: -25px;
+    }
+
+    .navigation a {
+      margin-right: 10px;
+      font-size: 20px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .tsection {
+      margin-top: 10px;
+      padding: 50px;
+      text-align: center;
+      background-color: plum;
+      height: 200px;
+      width: 100%;
+      background-position: center;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .service-button {
+      vertical-align: top;
+      text-align: center;
+      padding: 10px 20px;
+      border-radius: 15%;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      align-items: center;
+      background-color: #FFDF8C;
+      color: black;
+      width: 250px;
+    }
+
+    .service-button img {
+      height: 150px;
+      width: 150px;
+    }
+
+
+    h3 {
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 50px;
+      margin-left: 30px;
+      
+    }
+    .main {
+      font-size: 36px;
+      color: black;
+      margin-top: 150px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>
+      <span class="RemitSG">RemitSG</span>
+    </h1>
+    <div class="navigation">
+      <a href="Service.html">Services</a>
+      <a href="ModeOfPayment.html">Transfer</a>
+      <a href="Account.html">Account</a>
+      <a href="HelpAndSupport.html">Help And Support</a>
+    </div>
+  </div>
+
+  <div class="tsection">
+    <div class="main">
+      <h2>Our Services</h2>
+    </div>
+  </div>
+  <section class="bsection">
+    <h3>We provide</h3>
+    <div class="services-container">
+      <button class="service-button" onclick="selectService()">
+        <span class="name">Money Transfer</span><br>
+        <div class="money">
+          <img src="C:\Users\22024937\Downloads\Money-Transfer-1.png">
+          <br>
+          <span class="name"> Send money to your loved ones anytime, anywhere</span>
+        </div>
+      </button>
+      <button class="service-button" onclick="selectService()">
+        <span class="name">Receive Money</span><br>
+        <div class="Receive">
+          <img src="C:\Users\22024937\Downloads\Untitled.png">
+          <br>
+          <span class = "name" >  Receive money from overseas directly into your bank account</span>
+        </div>
+      </button>
+      <button class="service-button" onclick="selectService()">
+        <span class="name">Tracking Money Transfer</span><br>
+        <div class="Track">
+          <img src="C:\Users\22024937\Downloads\how-to-track-money-transfer.webp">
+          <br>
+          <span class = "name" > Track your delivery status from your device easily</span>
+        </div>
+      </button>
+    </div>
+  </section>
+</body>
+</html>

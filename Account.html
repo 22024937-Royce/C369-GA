@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+    body{
+      font-family: sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .header h1 {
+      margin: 0;
+    }
+    
+    .header h1 span.RemitSG {
+      color: grey;
+    }
+    
+
+    
+    .navigation {
+      display: flex;
+      float:right;
+      margin-top: -25px;
+      
+    }
+    
+    .navigation a {
+      margin-right: 10px;
+      font-size: 20px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+    .tsection{
+        margin-top: 10px;
+        padding: 30px;
+        text-align: center;
+        background-color: plum;
+        height: 50%;
+        width:100%
+    }
+  
+    #esta{
+       vertical-align: top;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border:none;
+        align-items: center;
+        background-color: #FFDF8C;
+        color:black;
+    }
+    
+    .main{
+      font-size: 24px;
+      color:white;
+      margin-bottom: 20px;
+    }
+    .sub{
+      font-weight: bold;
+      font-size: 20px;
+      margin-top :-50px; 
+    }
+    .form-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+    }
+    .form-section .line {
+      width: 1px;
+      height: 200px;
+      background-color: black;
+      margin: 0 20px;
+    }
+    .form-section .login-section,
+    .form-section .signup-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+    .form-section input[type="text"],
+    .form-section input[type="password"] {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 400px;
+    }
+    .form-section button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .form-section .login-button {
+      background-color: #FFDF8C;
+      color: black;
+    }
+    .form-section .signup-button {
+      background-color: #FFDF8C;
+      color: black;
+    }
+   </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+          <span class="RemitSG">RemitSG</span>
+        </h1>
+        <div class="navigation">
+          <a href="Service.html">Services</a>
+          <a href="ModeOfPayment.html">Transfer</a>
+          <a href="Account.html">Account</a>
+          <a href="HelpAndSupport.html">Help And Support</a>
+        </div>
+      </div>
+    <div class="tsection">
+        <div class="main">
+          <h2>Login/Signup</h2>
+        </div>
+    </div>
+
+    <div class="form-section">
+      <div class="login-section">
+        <h3>Login</h3>
+        <input id="loginEmail" type="text" placeholder="Email">
+        <input id="loginPassword" type="password" placeholder="Password">
+        <button class="login-button" onclick="login()">Login</button>
+      </div>
+      <div class="line"></div>
+      <div class="signup-section">
+        <h3>Sign Up</h3>
+        <input id="signupEmail" type="text" placeholder="Email">
+        <input id="signupPassword" type="password" placeholder="Password">
+        <button class="signup-button" onclick="signup()">Sign Up</button>
+      </div>
+    </div> 
+
+    <script src="login signup.js"></script>
+    <script>
+      function login() {
+        var email = document.getElementById("loginEmail").value;
+        var password = document.getElementById("loginPassword").value;
+
+        // Validate the email format
+        if (!validateEmail(email)) {
+          alert("Invalid email address format. Please enter a valid email.");
+          return;
+        }
+
+        // Your login validation logic here
+        if (email === "royce.weijie@gmail.com" && password === "password") {
+          redirectToModeOfPayment();
+        } else {
+          alert("Invalid login credentials. Please try again.");
+        }
+      }
+
+      function validateEmail(email) {
+        var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return pattern.test(email);
+      }
+
+      function redirectToModeOfPayment() {
+        window.location.href = "ModeOfPayment.html";
+      }
+
+
+    </script>
+</body>
+</html>

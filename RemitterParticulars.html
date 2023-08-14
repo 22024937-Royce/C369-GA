@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    /* Create a grid container with two columns */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* Two equal columns */
+      height: 100vh; /* Adjust the height as needed */
+    }
+
+    /* Style for the left section */
+    .left-section {
+      padding: 10px;
+      background-color: plum;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Style for the right section */
+    .right-section {
+      padding: 50px;
+      background-color: white;
+    }
+    .logo {
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 200%; /* Increase font size to 100px */
+        color: grey; /* Text color */
+    }
+
+    /* Style for form elements */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 18px; /* Increase font size of labels */
+      margin-bottom: 50px; /* Add spacing below labels */
+    }
+
+    input {
+      font-size: 16px; /* Increase font size of text boxes */
+      padding: 5px; /* Add padding to text boxes */
+      margin-bottom: 50px; /* Add spacing below text boxes */
+    }
+
+    .submit-btn {
+      display: block; /* Hide the submit button by default */
+      margin-top: 15px; /* Add spacing above submit button */
+      width: 100px;
+    }
+    .error-message{
+      color: red;
+    }
+
+   </style>
+</head>
+<body>
+  <!-- Two sections using Grid -->
+  <div class="grid-container">
+    <div class="left-section">
+      <div class="logo">
+        <h1>RemitSG</h1>
+      </div>
+    </div>
+    <div class="right-section">
+      <h2>Enter the Remitter particulars</h2>
+      <form action="BeneficiaryParticulars.html">
+        <div>
+          <label for="full-name">Full Name:</label>
+          <input type="text" id="full-name" name="full-name" required>
+        </div>
+
+        <div>
+          <label for="id-number">Identification Number:</label>
+          <input type="text" id="id-number" name="id-number" required>
+        </div>
+
+        <div>
+          <label for="contact-number">Contact Number:</label>
+          <input type="text" id="contact-number" name="contact-number" required>
+        </div>
+
+        <div>
+          <label for="current-address">Current Residential Address:</label>
+          <input type="text" id="current-address" name="current-address" required>
+        </div>
+
+        <div>
+          <label for="Bank-account">Bank Account:</label>
+          <input type="text" id="Bank-account" name="Bank-account" required>
+        </div>
+
+        <input type="submit" class="submit-btn" value="Submit">
+      </form>
+      <div class="right-section">
+       
+        <div id="error-message" class="error-message"></div> <!-- Add this line for error message -->
+        <form action="BeneficiaryParticulars.html">
+          
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    const phoneNumberInput = document.getElementById('contact-number');
+    const bankAccountInput = document.getElementById('Bank-account');
+    const submitButton = document.querySelector('.submit-btn');
+    const errorMessage = document.getElementById('error-message'); // Add this line
+    
+    phoneNumberInput.addEventListener('input', validateForm);
+    bankAccountInput.addEventListener('input', validateForm);
+  
+    function validateForm() {
+      const phoneNumberPattern = /^\+65(6|8|9)\d{7}$/;;
+      const bankAccountPattern = /^\d{8}$/;
+      
+      const isPhoneNumberValid = phoneNumberPattern.test(phoneNumberInput.value);
+      const isBankAccountValid = bankAccountPattern.test(bankAccountInput.value);
+  
+      if (!isPhoneNumberValid && !isBankAccountValid) {
+        errorMessage.textContent = "Invalid phone number and bank account number have been entered. Please try again."; // Update this line
+        submitButton.disabled = true;
+      } else if (!isPhoneNumberValid) {
+        errorMessage.textContent = "Invalid phone number has been entered. Please try again."; // Update this line
+        submitButton.disabled = true;
+      } else if (!isBankAccountValid) {
+        errorMessage.textContent = "Invalid bank account number has been entered. Please try again."; // Update this line
+        submitButton.disabled = true;
+      } else {
+        errorMessage.textContent = "";
+        submitButton.disabled = false;
+      }
+    }
+  
+    function handleFormSubmission(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+      
+      // Validate phone number and bank account number before allowing form submission
+      validateForm();
+      
+      if (!submitButton.disabled) {
+        // If both phone number and bank account number are valid, proceed to submit the form
+        window.location.href = "BeneficiaryParticulars.html"; // Redirect to BeneficiaryParticulars.html
+      }
+    }
+  
+    submitButton.addEventListener('click', handleFormSubmission);
+  </script>

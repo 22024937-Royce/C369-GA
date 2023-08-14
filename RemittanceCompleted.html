@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    /* Create a grid container with two columns */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* Two equal columns */
+      height: 100vh; /* Adjust the height as needed */
+    }
+
+    /* Style for the left section */
+    .left-section {
+      padding: 10px;
+      background-color: plum;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Style for the right section */
+    .right-section {
+      padding: 50px;
+      background-color: white;
+      align-items: center; /* Align children in the center horizontally */
+      justify-content: center; 
+    }
+    .logo {
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 200%; /* Increase font size to 100px */
+        color: grey; /* Text color */
+    }
+
+    /* Style for form elements */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    .p{
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+    h2 {
+        margin-bottom: 20px; /* Increase margin between h2 and p */
+        font-size: 400%;
+    }
+    .p2{
+        margin-top: 30px;
+        font-size: 30px;
+    
+    }
+
+    .stars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .star {
+      width: 100px; /* Set the size of each star image */
+      height: 100px;
+      margin: 5px; /* Add spacing between stars */
+      cursor: pointer; /* Change cursor to indicate it's clickable */
+      fill: #ccc; /* Default color for the star */
+    }
+    .star.yellow {
+      fill: yellow; /* Change the color to yellow when selected */
+    }
+    .go-back-btn {
+      display: none; /* Hide the button by default */
+      margin-top: 15px; /* Add spacing above the button */
+      width: 150px;
+      padding: 7px;
+    }
+
+
+   </style>
+</head>
+<body>
+  <!-- Two sections using Grid -->
+  <div class="grid-container">
+    <div class="left-section">
+      <div class="logo">
+        <h1>RemitSG</h1>
+      </div>
+    </div>
+    <div class="right-section">
+      <h2>Remittance Completed!</h2>
+      <p class="p">An email with the Remittance Advice will be sent to you shortly.</p>
+      <p class= "p2">Please rate our service:</p>
+      <div class="stars">
+        <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2l2.062 6.313h6.266l-5.031 3.938 1.907 6.313-5.204-3.75-5.203 3.75 1.907-6.313-5.03-3.938h6.265z" />
+        </svg>
+        <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2l2.062 6.313h6.266l-5.031 3.938 1.907 6.313-5.204-3.75-5.203 3.75 1.907-6.313-5.03-3.938h6.265z" />
+        </svg>
+        <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2l2.062 6.313h6.266l-5.031 3.938 1.907 6.313-5.204-3.75-5.203 3.75 1.907-6.313-5.03-3.938h6.265z" />
+        </svg>
+        <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2l2.062 6.313h6.266l-5.031 3.938 1.907 6.313-5.204-3.75-5.203 3.75 1.907-6.313-5.03-3.938h6.265z" />
+        </svg>
+        <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2l2.062 6.313h6.266l-5.031 3.938 1.907 6.313-5.204-3.75-5.203 3.75 1.907-6.313-5.03-3.938h6.265z" />
+        </svg>
+      </div>
+      <button class="go-back-btn" onclick="goBackToHomePage()">Go back to home page</button>
+    </div>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll('.star');
+    const goBackBtn = document.querySelector('.go-back-btn');
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        star.classList.toggle('yellow'); // Toggle the 'yellow' class on and off
+        goBackBtn.style.display = 'block'; // Show the go back button when a star is clicked
+      });
+    });
+
+    function goBackToHomePage() {
+      window.location.href = 'Homepage.html';
+    }
+  </script>
+</body>
+</html>

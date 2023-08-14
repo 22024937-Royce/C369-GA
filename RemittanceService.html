@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+    body{
+      font-family: sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .header h1 {
+      margin: 0;
+    }
+    
+    .header h1 span.RemitSG {
+      color: grey;
+    }
+    
+    .navigation {
+      display: flex;
+      float:right;
+      margin-top: -25px;
+    }
+    
+    .navigation a {
+      margin-right: 10px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 25px;
+    }
+    .tsection {
+        margin-top: 10px;
+        padding: 25px;
+        text-align: center;
+        background-color: plum;
+        height: 300px;
+        width: 100%;
+    }
+  
+    #esta {
+       vertical-align: top;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border:none;
+        align-items: center;
+        background-color: #FFDF8C;
+        color:black;
+    }
+    
+    .service-options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 400px; /* Increased height here */
+    }
+    
+    .service-option {
+      display: inline-flex;
+      align-items: center;
+      margin: 10px;
+      cursor: pointer;
+      justify-content: center;
+      height: 100%;
+      font-size: 20px;
+
+    }
+    
+    .service-option span {
+      margin-left: 10px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 30px;
+    }
+    
+    .circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid black;
+      transition: background-color 0.2s ease;
+    }
+    
+    .selected {
+      background-color: black;
+    }
+    .h2{
+        margin-top: 100px;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    .h3{
+        margin: auto;
+        font-weight: bold;
+        font-size: 70px;
+
+    }
+
+    .continue-button {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .show-button {
+      display: block;
+    }
+   </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+          <span class="RemitSG">RemitSG</span>
+        </h1>
+        <div class="navigation">
+          <a href="Service.html">Services</a>
+          <a href="ModeOfPayment.html">Transfer</a>
+          <a href="Account.html">Account</a>
+          <a href="HelpAndSupport.html">Help And Support</a>
+        </div>
+    </div>
+    <div class="tsection">
+        <div class="h2">
+          <h2>Money Transfer</h2>
+        </div>
+        
+    </div>
+    
+    <div class="service-options">
+        <h3>Select type of remittance service</h3>
+      <div class="service-option" onclick="selectOption('door')">
+        <div class="circle" id="doorOption"></div>
+        <span>Door-to-Door</span>
+      </div>
+      <div class="service-option" onclick="selectOption('bank')">
+        <div class="circle" id="bankOption"></div>
+        <span>Bank-to-bank</span>
+      </div>
+      <div class="service-option" onclick="selectOption('visa_paypal')">
+        <div class="circle" id="visa_paypalOption"></div>
+        <span>Visa/Paypal</span>
+
+  </div>
+  <a class="continue-button" id="continueButton" href="RemitterParticulars.html">Continue</a>
+</div>
+    
+    <script>
+      function selectOption(option) {
+        const allOptions = ["door", "bank", "visa_paypal"];
+        allOptions.forEach((opt) => {
+          const circleElement = document.getElementById(`${opt}Option`);
+          if (opt === option) {
+            circleElement.classList.add("selected");
+          } else {
+            circleElement.classList.remove("selected");
+          }
+        });
+
+        const continueButton = document.getElementById("continueButton");
+        continueButton.style.display = "block";
+      }
+    </script>
+</body>
+</html>
